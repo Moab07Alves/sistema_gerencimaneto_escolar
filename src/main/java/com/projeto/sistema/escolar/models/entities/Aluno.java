@@ -21,6 +21,9 @@ public class Aluno {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "cpf", nullable = false, unique = true, length = 11)
+    private String cpf;
+
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
@@ -29,17 +32,17 @@ public class Aluno {
     @Column(name = "sexo", nullable = false)
     private Sexo sexo;
 
-    @Column(name = "cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    @Column(name = "nome_responsavel", nullable = false)
+    private String nomeResponsavel;
+
+    @Embedded
+    private Endereco endereco;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "telefone", length = 11)
     private String telefone;
-
-    @Column(name = "nome_responsavel", nullable = false)
-    private String nomeResponsavel;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status", nullable = false)
@@ -48,10 +51,6 @@ public class Aluno {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_matricula", nullable = false)
     private LocalDate dataMatricula;
-
-    @OneToOne
-    @JoinColumn(name = "endereco_fk")
-    private Endereco endereco;
 
     @ManyToOne
     @JoinColumn(name = "turma_fk")

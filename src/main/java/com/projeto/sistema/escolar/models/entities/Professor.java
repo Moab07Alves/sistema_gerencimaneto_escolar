@@ -28,15 +28,15 @@ public class Professor {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "data_contratacao", nullable = false)
+    private LocalDate dataContratacao;
+
     @Column(name = "formacao", nullable = false)
     private String formacao;
 
     @Column(name = "especializacao", nullable = false)
     private String especializacao;
-
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(name = "data_contratacao", nullable = false)
-    private LocalDate dataContratacao;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status", nullable = false)

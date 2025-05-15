@@ -2,17 +2,9 @@ package com.projeto.sistema.escolar.models.entities;
 
 import com.projeto.sistema.escolar.models.enums.Estado;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "enderecos")
-@Entity
+@Embeddable
 public class Endereco {
-
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
 
     @Column(name = "logradouro", nullable = false)
     private String logradouro;
@@ -35,9 +27,6 @@ public class Endereco {
     @Column(name = "cep", nullable = false)
     private String cep;
 
-    @OneToOne(mappedBy = "endereco")
-    private Aluno aluno;
-
     public Endereco(String logradouro, int numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
         this.logradouro = logradouro;
         this.numero = numero;
@@ -46,10 +35,6 @@ public class Endereco {
         this.cidade = cidade;
         this.estado = estado;
         this.cep = cep;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getLogradouro() {
@@ -108,26 +93,16 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
-
     @Override
     public String toString() {
         return "Endereco /n" +
-                "Id: " + id + "/n" +
                 "Logradouro: " + logradouro +  "/n" +
                 "Número: " + numero +  "/n" +
                 "Complemento: " + complemento +  "/n" +
                 "Bairro: " + bairro +  "/n" +
                 "Cidade: " + cidade +  "/n" +
                 "Estado: " + estado +  "/n" +
-                "CEP: " + cep +  "/n" +
-                "Aluno: " + aluno + "/n" ;
+                "CEP: " + cep +  "/n";
     }
 
 }
