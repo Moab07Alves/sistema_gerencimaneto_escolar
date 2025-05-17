@@ -1,4 +1,4 @@
-package com.projeto.sistema.escolar.models.entities;
+package com.projeto.sistema.escolar.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

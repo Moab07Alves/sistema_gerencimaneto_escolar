@@ -1,7 +1,7 @@
-package com.projeto.sistema.escolar.models.entities;
+package com.projeto.sistema.escolar.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.projeto.sistema.escolar.models.enums.Status;
+import com.projeto.sistema.escolar.model.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

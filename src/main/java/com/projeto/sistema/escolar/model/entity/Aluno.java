@@ -1,8 +1,8 @@
-package com.projeto.sistema.escolar.models.entities;
+package com.projeto.sistema.escolar.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.projeto.sistema.escolar.models.enums.Sexo;
-import com.projeto.sistema.escolar.models.enums.Status;
+import com.projeto.sistema.escolar.model.enums.Sexo;
+import com.projeto.sistema.escolar.model.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -35,36 +35,37 @@ public class Aluno {
     @Column(name = "nome_responsavel", nullable = false)
     private String nomeResponsavel;
 
-    @Embedded
-    private Endereco endereco;
-
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "telefone", length = 11)
+    @Column(name = "telefone", nullable = false, length = 11)
     private String telefone;
-
-    @Enumerated(value = EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private Status status;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_matricula", nullable = false)
     private LocalDate dataMatricula;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private Status status;
+
+    @Embedded
+    private Endereco endereco;
+
     @ManyToOne
     @JoinColumn(name = "turma_fk")
     private Turma turma;
 
-    public Aluno(String nome, LocalDate dataNascimento, Sexo sexo, String cpf, String email, String telefone, String nomeResponsavel, Status status, LocalDate dataMatricula, Endereco endereco, Turma turma) {
+    public Aluno(String nome, String cpf, LocalDate dataNascimento, Sexo sexo, String nomeResponsavel, String email, String telefone, LocalDate dataMatricula, Status status, Endereco endereco) {
         this.nome = nome;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
-        this.cpf = cpf;
+        this.nomeResponsavel = nomeResponsavel;
         this.email = email;
         this.telefone = telefone;
-        this.nomeResponsavel = nomeResponsavel;
         this.dataMatricula = dataMatricula;
+        this.status = status;
         this.endereco = endereco;
     }
 

@@ -1,6 +1,6 @@
-package com.projeto.sistema.escolar.models.entities;
+package com.projeto.sistema.escolar.model.entity;
 
-import com.projeto.sistema.escolar.models.enums.Estado;
+import com.projeto.sistema.escolar.model.enums.Estado;
 import jakarta.persistence.*;
 
 @Embeddable

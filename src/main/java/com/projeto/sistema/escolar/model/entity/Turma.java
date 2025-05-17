@@ -1,6 +1,6 @@
-package com.projeto.sistema.escolar.models.entities;
+package com.projeto.sistema.escolar.model.entity;
 
-import com.projeto.sistema.escolar.models.enums.Turno;
+import com.projeto.sistema.escolar.model.enums.Turno;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.projeto.sistema.escolar.models.enums;
+package com.projeto.sistema.escolar.model.enums;
 
 public enum Estado {
 
