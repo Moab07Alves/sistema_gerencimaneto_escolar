@@ -21,7 +21,7 @@ public class Aluno {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "cpf", nullable = false, unique = true, length = 11)
+    @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -38,7 +38,7 @@ public class Aluno {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "telefone", nullable = false, length = 11)
+    @Column(name = "telefone", nullable = false)
     private String telefone;
 
     @JsonFormat(pattern = "dd/MM/yyyy")

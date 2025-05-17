@@ -27,6 +27,9 @@ public class Endereco {
     @Column(name = "cep", nullable = false)
     private String cep;
 
+    public Endereco() {
+    }
+
     public Endereco(String logradouro, int numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
         this.logradouro = logradouro;
         this.numero = numero;
